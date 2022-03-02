@@ -13,9 +13,7 @@ function AddFoodForm(props) {
 
     const handleSubmit = (e) => {
       e.preventDefault();
-      const randomId = Math.random() * 1000000000;
       const newFood = {
-        _id: randomId,
         name,
         image,
         calories,
