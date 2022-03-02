@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Divider, Input } from 'antd';
 
 function AddFoodForm(props) {
     const [name, setName] = useState('');
@@ -20,7 +21,7 @@ function AddFoodForm(props) {
         servings,
       };
 
-      props.addFood(newFood);
+      props.addFood(newFood) ;
       setName('');
       setImage('');
       setCalories(0);
@@ -30,37 +31,22 @@ function AddFoodForm(props) {
     <div>
       <h2>Add Food</h2>
       <form onSubmit={handleSubmit}>
-        <label> Name:</label>
-        <input
-          type="text"
-          name="name"
-          value={name}
-          onChange={handleNameInput}
-        />
-        <label> Image:</label>
-        <input
-          type="url"
-          name="image"
-          value={image}
-          onChange={handleImageInput}
-        />
-        <label> Calories:</label>
-        <input
-          type="number"
-          name="calories"
-          value={calories}
-          onChange={handleCaloriesInput}
-        />
-        <label> Servings:</label>
-        <input
-          type="number"
-          name="servings"
-          value={servings}
-          onChange={handleServingsInput}
-        />
+      <Divider>Add Food Entry</Divider>
 
-        <button type="submit"> Add Food</button>
-      </form>
+      <label>Name</label>
+      <Input value={undefined} type="text" onChange={handleNameInput} />
+
+      <label>Image</label>
+      <Input value={undefined} type="text" onChange={handleImageInput} />
+
+      <label>Calories</label>
+      <Input value={undefined} type="number" onChange={handleCaloriesInput} />
+
+      <label>Servings</label>
+      <Input value={undefined} type="number" onChange={handleServingsInput} />
+
+      <button type="submit">Create</button>
+    </form>
     </div>
   );
 }

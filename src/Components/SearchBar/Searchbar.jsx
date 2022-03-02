@@ -1,20 +1,21 @@
 import React, {useState} from 'react'
+import { Divider, Input } from 'antd';
 
-function Searchbar(props) {
-    const [search, setSearch] = useState('')
-
-    const handleChange = (e) => {
-        setSearch(e.target.value);
-        props.search(e.target.value)
-    }
-
+// Iteration 5
+function Search(props) {
+const [search, setSearch] = useState('')
+const handleChange = (e) => {
+    setSearch(e.target.value);
+    props.search(e.target.value)
+}
   return (
-    <div>
-        <h2>Search for Food:</h2>
-        <input type="text" value={search} onChange={handleChange}/>
-        <button type="submit">Search</button>
-    </div>
-  )
+    <>
+      <Divider>Search</Divider>
+
+      <label>Search</label>
+      <Input value={search} type="text" onChange={handleChange} />
+    </>
+  );
 }
 
-export default Searchbar
+export default Search;

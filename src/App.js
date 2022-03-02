@@ -4,6 +4,7 @@ import foodsData from './foods.json';
 import FoodBox from './Components/FoodBox/FoodBox';
 import AddFoodForm from './Components/AddFoodForm/AddFoodForm';
 import Searchbar from './Components/SearchBar/Searchbar';
+import { Row, Divider, Button } from 'antd';
 
 function App() {
   const [foods, setFood] = useState(foodsData);
@@ -38,17 +39,21 @@ console.log(filteredFoods)
 }
   return (
     <div className="App">
-      <h1>Food List</h1>
-    <Searchbar search={searchFilter}/>
     {showForm && <AddFoodForm addFood={addNewFood}></AddFoodForm>}
-    <button onClick={toggleShow}>{showForm?'Hide':'Add New Food'}</button>
-      <hr />
-    {displayFood.map((food) =>{
+    <Button onClick={toggleShow}>{showForm?'Hide':'Add New Food'}> </Button>
+
+    <Searchbar search={searchFilter}/>
+
+      <Divider>Food List</Divider>
+
+      <Row style={{ width: '100%', justifyContent: 'center' }}>
+      {displayFood.map((food) =>{
      return (
      <FoodBox key={food.name} clickToDelete={deleteFood} food={food} />
       )
     })}
-    {!displayFood.length && <h2> Ooops! There's no more content to show! </h2>}
+      </Row>
+      {!displayFood.length && <h2> Ooops! There's no more content to show! </h2>}
     </div>
   );
 }

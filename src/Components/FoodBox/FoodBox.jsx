@@ -5,7 +5,6 @@ import './FoodBox.css'
 function FoodBox(props) {
 const {food, clickToDelete} = props
   return (
-    <Row>
     <Col>
     <Card
       title={food.name}
@@ -20,7 +19,6 @@ const {food, clickToDelete} = props
       <Button type="primary" onClick={() => clickToDelete(food.name)}> Delete </Button>
     </Card>
     </Col>
-   </Row>
   )
 }
 
